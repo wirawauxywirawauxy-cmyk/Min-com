@@ -170,6 +170,23 @@ function showToast() {
         toast.classList.add('opacity-0', '-translate-y-4');
     }, 2500);
 }
+    <script>
+    // ดึง Element ของเพลงมา
+    const music = document.getElementById('bgMusic');
+
+    // ฟังก์ชันช่วยเล่นเพลงเมื่อมีการโต้ตอบกับหน้าเว็บ
+    function playMusic() {
+        if (music.paused) {
+            music.play().catch(error => {
+                console.log("Autoplay ถูกบล็อก: ต้องรอให้ผู้ใช้คลิกหน้าจอก่อน");
+            });
+        }
+    }
+
+    // เมื่อคลิกส่วนไหนก็ได้ของหน้าจอ ให้เพลงเริ่มเล่น
+    document.addEventListener('click', playMusic, { once: true });
+    document.addEventListener('touchstart', playMusic, { once: true });
+</script>
 </script>
 </body>
 </html>
